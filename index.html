@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Critical Point</title>
+  <meta name="description" content="Writing on literature, music, movies, politics, feminism, and whatever else is on my mind.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="mast">
+    <a class="wordmark" href="index.html">Critical Point</a>
+    <p class="tag">
+      <span>Writing on books, music, film, politics and the rest of what's on my mind.</span>
+      <a href="about.html">About</a>
+    </p>
+  </header>
+
+  <nav class="bar" aria-label="Topics">
+    <div id="topics" role="group" aria-label="Filter by topic" style="display:contents"></div>
+    <span class="spacer"></span>
+    <span class="count" id="count" aria-live="polite"></span>
+    <input id="search" type="search" placeholder="Search the archive" aria-label="Search the archive">
+  </nav>
+
+  <main>
+    <section class="lead" id="lead" aria-label="Latest piece" hidden></section>
+    <section class="wall" id="wall" aria-label="All writing"></section>
+  </main>
+
+  <footer class="site">
+    <span>Critical Point</span>
+    <span>© <span id="yr"></span></span>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    CP.loadPosts().then(CP.renderIndex);
+  </script>
+</body>
+</html>

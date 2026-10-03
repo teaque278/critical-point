@@ -1,0 +1,158 @@
+/* Critical Point
+   Palette from your swatches. Edit the values below to retheme the whole site. */
+:root {
+  --sage: #d2e8ae;      /* Light sage: page */
+  --paper: #f3f9e6;     /* lightened sage: text on dark covers */
+  --mist: #b3dcd6;      /* Sea Mist */
+  --koi: #739cbd;       /* Blue Koi */
+  --kashmir: #596498;   /* Kashmir Blue */
+  --cactus: #447d51;    /* Cactus */
+  --ink: #262b4d;       /* deep Kashmir: text */
+  --gutter: clamp(0.9rem, 2.2vw, 1.6rem);
+  --serif: "Alegreya", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sage);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- masthead ---------- */
+.mast { padding: 1rem var(--gutter) 0; }
+.wordmark {
+  display: block;
+  font-size: clamp(2.6rem, 16.5vw, 15rem);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mast .tag {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin: 0.8rem 0 1rem; font-style: italic; font-size: 1.05rem;
+}
+.mast .tag a { text-underline-offset: 3px; }
+.mast.small .wordmark { font-size: clamp(2rem, 6vw, 3.4rem); }
+.mast.small .tag { margin-bottom: 0.8rem; }
+
+/* ---------- filter bar ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--sage);
+  border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  padding: 0.55rem var(--gutter);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.35rem;
+}
+.bar button {
+  font: inherit; font-size: 1rem; font-weight: 500;
+  background: none; color: var(--ink); border: 2px solid transparent; border-radius: 999px;
+  padding: 0.1rem 0.8rem; cursor: pointer;
+}
+.bar button:hover { border-color: var(--ink); }
+.bar button.on { background: var(--ink); color: var(--paper); }
+.bar .spacer { flex: 1 1 1rem; }
+.bar .count { font-style: italic; font-size: 0.95rem; }
+.bar input {
+  font: inherit; font-size: 1rem; width: 11rem; max-width: 100%;
+  background: transparent; color: var(--ink);
+  border: 0; border-bottom: 2px solid var(--ink); padding: 0.1rem 0.2rem;
+}
+.bar input::placeholder { color: var(--ink); opacity: 0.55; font-style: italic; }
+.bar input:focus { outline: none; background: var(--mist); }
+
+/* ---------- covers (colour comes from tone-*) ---------- */
+.tone-kashmir { background: var(--kashmir); color: var(--paper); }
+.tone-cactus  { background: var(--cactus);  color: var(--paper); }
+.tone-koi     { background: var(--koi);     color: var(--ink); }
+.tone-mist    { background: var(--mist);    color: var(--ink); }
+
+.cover { display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; }
+.cover h2, .cover h3 { margin: 0; font-weight: 800; line-height: 0.96; letter-spacing: -0.025em; }
+.cover .dek { margin: 0.9rem 0 0; font-style: italic; font-size: 1.1rem; line-height: 1.35; max-width: 34rem; }
+.cover .meta { font-size: 1rem; font-style: italic; }
+.cover:hover h2, .cover:hover h3 { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+
+/* lead story */
+.lead { margin: var(--gutter); }
+.lead .cover {
+  min-height: min(68vh, 36rem);
+  padding: clamp(1.1rem, 3vw, 2.4rem);
+  border-radius: 6px;
+}
+.lead h2 { font-size: clamp(2.5rem, 8.2vw, 7.6rem); max-width: 14ch; }
+.lead .meta { margin-bottom: 1.4rem; }
+
+/* wall */
+.wall {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gutter);
+  padding: 0 var(--gutter) var(--gutter);
+  grid-auto-flow: dense;
+}
+.wall .cover {
+  grid-column: span 2; min-height: 21rem; padding: 1.1rem 1.2rem;
+  border-radius: 6px;
+}
+.wall .cover.w3 { grid-column: span 3; }
+.wall .cover.w4 { grid-column: span 4; min-height: 24rem; }
+.wall .cover h3 { font-size: clamp(1.7rem, 3vw, 2.7rem); }
+.wall .cover.w4 h3 { font-size: clamp(2.2rem, 5vw, 4.6rem); max-width: 14ch; }
+.wall .cover.w3 h3 { font-size: clamp(2rem, 4vw, 3.6rem); }
+.wall .meta { margin-top: 1rem; }
+.empty { padding: 3rem var(--gutter); font-style: italic; font-size: 1.3rem; grid-column: 1 / -1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .wall .cover, .lead .cover { transition: transform 0.18s ease; }
+  .wall .cover:hover { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+@media (max-width: 900px) {
+  .wall { grid-template-columns: repeat(2, 1fr); }
+  .wall .cover, .wall .cover.w3, .wall .cover.w4 { grid-column: span 1; min-height: 17rem; }
+  .wall .cover.w4 { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .wall { grid-template-columns: 1fr; }
+  .wall .cover.w4 { grid-column: span 1; }
+  .bar input { width: 100%; }
+  .bar .spacer { display: none; }
+}
+
+/* ---------- reading page ---------- */
+.reader-head { margin: var(--gutter); border-radius: 6px; padding: clamp(1.2rem, 4vw, 3rem); }
+.reader-head h1 {
+  margin: 0; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;
+  font-size: clamp(2.4rem, 7.5vw, 6.4rem); max-width: 16ch;
+}
+.reader-head .dek { font-style: italic; font-size: 1.35rem; line-height: 1.35; margin: 1.2rem 0 0; max-width: 36rem; }
+.reader-head .meta { font-style: italic; margin-bottom: 1.6rem; }
+.reader-head .back { display: inline-block; margin-bottom: 2.5rem; font-weight: 500; text-underline-offset: 3px; }
+
+.essay { max-width: 38rem; margin: 0 auto; padding: 1.5rem var(--gutter) 4rem; font-size: 1.3rem; line-height: 1.62; }
+.essay p { margin: 0 0 1.2rem; }
+.essay h2 { font-size: 1.9rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 2.6rem 0 0.8rem; }
+.essay h3 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.6rem; }
+.essay blockquote {
+  margin: 2rem 0; padding: 0.2rem 0 0.2rem 1.2rem; border-left: 5px solid var(--kashmir);
+  font-style: italic; font-size: 1.5rem; line-height: 1.35;
+}
+.essay hr { border: 0; height: 2px; background: var(--ink); margin: 2.6rem 0; }
+.essay a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* about page uses the same reader layout */
+.essay.plain { padding-top: 3rem; }
+
+/* ---------- footer ---------- */
+footer.site {
+  border-top: 2px solid var(--ink); padding: 1rem var(--gutter) 1.6rem;
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  font-style: italic;
+}

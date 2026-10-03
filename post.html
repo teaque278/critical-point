@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Critical Point</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="mast small">
+    <a class="wordmark" href="index.html">Critical Point</a>
+    <p class="tag"><a href="index.html">All writing</a><a href="about.html">About</a></p>
+  </header>
+
+  <main>
+    <header class="reader-head" id="head"></header>
+    <article class="essay" id="body"><p>Loading…</p></article>
+  </main>
+
+  <footer class="site">
+    <span>Critical Point</span>
+    <span>© <span id="yr"></span></span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    CP.loadPosts().then(CP.renderPost);
+  </script>
+</body>
+</html>
