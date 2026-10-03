@@ -30,7 +30,7 @@ a { color: inherit; }
 .wordmark {
   display: block;
   font-size: clamp(2.4rem, 9vw, 7.5rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.035em;
   text-decoration: none;
