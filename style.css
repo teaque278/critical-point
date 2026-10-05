@@ -140,7 +140,7 @@ main { padding-top: var(--gutter); }
 .reader-head .meta { font-style: italic; margin-bottom: 1.6rem; }
 .reader-head .back { display: inline-block; margin-bottom: 2.5rem; font-weight: 500; text-underline-offset: 3px; }
 
-.essay { max-width: 38rem; margin: 0 auto; padding: 1.5rem var(--gutter) 4rem; font-size: 1.3rem; line-height: 1.62; }
+.essay { max-width: 64rem; margin: 0 auto; padding: 1.5rem var(--gutter) 4rem; font-size: 1.3rem; line-height: 1.62; }
 .essay p { margin: 0 0 1.2rem; }
 .essay h2 { font-size: 1.9rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 2.6rem 0 0.8rem; }
 .essay h3 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.6rem; }
