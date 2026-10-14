@@ -12,7 +12,7 @@ Neil (and I) are equally horrified to discover that this was all a prank. At thi
 
 And just fyi, this isn’t the worst prank she plays.
 
-## The whole movie is a hidden redemption arc
+## The whole movie is a hidden redemption arc ##
 
 Neil Lewis owns a video-store and lives vicariously through the movies he watches. He is also perpetually surrounded by movie buffs who always hang out at his nearly run-down store. He seems to have been marinating in this echo chamber that reaffirms his belief that a life partner should be adventurous & free-spirited. While breaking up with his former girlfriend he references Butch Cassidy & the Sundance Kid, talking about how Katherine Ross joined Paul Newman and fleeing the country and settling anew. This is the only time we get a peek into what love looks like to Neil and how warped his perception is by the media.
 
@@ -22,7 +22,7 @@ It’s only when he runs into his ex-girlfriend that he realises that he had alw
 
 In the end, Neil was a normal guy yearning for a fictional version of a lover. He forgets that in movies you only have to bear with the antics of a free-spirited person for 2 hours. But in real life, you gotta face the consequences their actions have on everyone else. All the time.
 
-## So much potential to be a thriller
+## So much potential to be a thriller ##
 
 With some editing and a change in the background score, this movie could totally qualify for a thriller. In fact, the more I think of it, the more I realise how much this movie could make for a really good unsettling creepy psychological horror.
 
