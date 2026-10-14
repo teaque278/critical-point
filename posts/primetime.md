@@ -6,11 +6,6 @@ I went to watch Primetime with my boyfriend, totally ready to watch Chris Hansen
 
 I walked out of the theatre with the heartbreaking realisation that there is a fundamental problem with doing good for an audience. 
 
-<figure>
-  <img src="images/primetime.jpg" alt="Chris Hansen in the film Primetime">
-  <figcaption>Robert Pattinson in Primetime as Chris Hansen.</figcaption>
-</figure>
-
 Primetime follows the story of Chris Hansen, an NBC journalist and rise and fall of his renowned show, *To Catch a Predator.*
 
 ## Vigilante Journalism
