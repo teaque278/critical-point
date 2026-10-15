@@ -19,5 +19,7 @@
     "date": "2026-10-14",
     "topic": "Movies",
     "summary": "Cillian and Lucy Liu could together not save this mess of a movie"
-  }
+  },
+  { "slug": "dear-love", "title": "dear love", "date": "2026-10-15", "topic": "Poetry" }
+  
 ]
