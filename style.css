@@ -1,0 +1,267 @@
+/* Critical Point
+   Palette from your swatches. Edit the values below to retheme the whole site. */
+:root {
+  --sage: #d2e8ae;      /* Light sage: page */
+  --paper: #f3f9e6;     /* lightened sage: text on dark covers */
+  --mist: #b3dcd6;      /* Sea Mist */
+  --koi: #739cbd;       /* Blue Koi */
+  --kashmir: #596498;   /* Kashmir Blue */
+  --cactus: #447d51;    /* Cactus */
+  --ink: #262b4d;       /* deep Kashmir: text */
+  --gutter: clamp(0.9rem, 2.2vw, 1.6rem);
+  --serif: "Alegreya", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sage);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- masthead ---------- */
+/* Home page: a thick colour band, a tilted title with a stacked shadow, and a few shapes peeking in from the edges */
+.mast {
+  position: relative; overflow: hidden; text-align: center;
+  background: var(--kashmir); color: var(--paper);
+  padding: clamp(3rem, 8vw, 5.5rem) var(--gutter) clamp(2.2rem, 6vw, 4rem);
+}
+.mast::before, .mast::after { content: ""; position: absolute; z-index: 0; pointer-events: none; }
+.mast::before {                                   /* round shape, top left */
+  width: clamp(6rem, 17vw, 15rem); aspect-ratio: 1; border-radius: 50%;
+  background: var(--koi); left: -3rem; top: -2.5rem;
+}
+.mast::after {                                    /* pill shape, bottom right */
+  width: clamp(7rem, 20vw, 17rem); height: clamp(2.6rem, 7vw, 6rem); border-radius: 999px;
+  background: var(--mist); right: -2.5rem; bottom: -1rem; transform: rotate(-14deg);
+}
+.wordmark {
+  position: relative; z-index: 1;
+  display: block;
+  font-size: clamp(2.4rem, 9vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transform: rotate(-1.5deg);
+  text-shadow: 0.035em 0.035em 0 var(--cactus), 0.07em 0.07em 0 var(--ink);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wordmark { transition: transform 0.25s ease; }
+  .wordmark:hover { transform: rotate(1deg) scale(1.02); }
+}
+/* inner pages: a plain, smaller title with two links underneath */
+.mast .tag {
+  display: flex; justify-content: center; gap: 1.6rem; flex-wrap: wrap;
+  margin: 0.7rem 0 0; font-style: italic; font-size: 1.05rem;
+}
+.mast .tag a { text-underline-offset: 3px; }
+.mast.small {
+  overflow: visible; background: none; color: inherit; padding: 1.2rem var(--gutter) 1rem;
+}
+.mast.small::before, .mast.small::after { display: none; }
+.mast.small .wordmark { font-size: clamp(2rem, 6vw, 3.4rem); transform: none; text-shadow: none; }
+
+/* ---------- filter bar ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--sage);
+  border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  padding: 0.55rem var(--gutter);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.35rem;
+}
+.bar button {
+  font: inherit; font-size: 1rem; font-weight: 500;
+  background: none; color: var(--ink); border: 2px solid transparent; border-radius: 999px;
+  padding: 0.1rem 0.8rem; cursor: pointer;
+}
+.bar button:hover { border-color: var(--ink); }
+.bar button.on { background: var(--ink); color: var(--paper); }
+.bar .spacer { flex: 1 1 1rem; }
+.bar .count { font-style: italic; font-size: 0.95rem; }
+.bar a.about { font-size: 1rem; font-weight: 500; padding: 0.1rem 0.8rem; text-underline-offset: 3px; }
+.bar input {
+  font: inherit; font-size: 1rem; width: 11rem; max-width: 100%;
+  background: transparent; color: var(--ink);
+  border: 0; border-bottom: 2px solid var(--ink); padding: 0.1rem 0.2rem;
+}
+.bar input::placeholder { color: var(--ink); opacity: 0.55; font-style: italic; }
+.bar input:focus { outline: none; background: var(--mist); }
+
+/* ---------- covers (colour comes from tone-*) ---------- */
+.tone-kashmir { background: var(--kashmir); color: var(--paper); }
+.tone-cactus  { background: var(--cactus);  color: var(--paper); }
+.tone-koi     { background: var(--koi);     color: var(--ink); }
+.tone-mist    { background: var(--mist);    color: var(--ink); }
+
+.cover { display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; }
+.cover h2, .cover h3 { margin: 0; font-weight: 800; line-height: 0.96; letter-spacing: -0.025em; }
+.cover .dek { margin: 0.9rem 0 0; font-style: italic; font-size: 1.1rem; line-height: 1.35; max-width: 34rem; }
+.cover .meta { font-size: 1rem; font-style: italic; }
+.cover:hover h2, .cover:hover h3 { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+
+/* lead story */
+main { padding-top: var(--gutter); overflow-x: clip; }
+.lead { margin: 0 var(--gutter) var(--gutter); }
+.lead .cover {
+  min-height: min(68vh, 36rem);
+  padding: clamp(1.1rem, 3vw, 2.4rem);
+  border-radius: 6px;
+}
+.lead h2 { font-size: clamp(2.5rem, 8.2vw, 7.6rem); max-width: 14ch; }
+.lead .meta { margin-bottom: 1.4rem; }
+
+/* wall */
+.wall {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gutter);
+  padding: 0 var(--gutter) var(--gutter);
+  grid-auto-flow: dense;
+}
+.wall .cover {
+  grid-column: span 2; min-height: 21rem; padding: 1.1rem 1.2rem;
+  border-radius: 6px;
+}
+.wall .cover.w3 { grid-column: span 3; }
+.wall .cover.w4 { grid-column: span 4; min-height: 24rem; }
+.wall .cover h3 { font-size: clamp(1.7rem, 3vw, 2.7rem); }
+.wall .cover.w4 h3 { font-size: clamp(2.2rem, 5vw, 4.6rem); max-width: 14ch; }
+.wall .cover.w3 h3 { font-size: clamp(2rem, 4vw, 3.6rem); }
+.wall .cover .dek { margin-top: 0.7rem; font-size: 1rem; line-height: 1.3; max-width: 30rem; }
+.wall .meta { margin-top: 1rem; }
+.empty { padding: 3rem var(--gutter); font-style: italic; font-size: 1.3rem; grid-column: 1 / -1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .wall .cover, .lead .cover { transition: transform 0.18s ease; }
+  .wall .cover:hover { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+@media (max-width: 900px) {
+  .wall { grid-template-columns: repeat(2, 1fr); }
+  .wall .cover, .wall .cover.w3, .wall .cover.w4 { grid-column: span 1; min-height: 17rem; }
+  .wall .cover.w4 { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .wall { grid-template-columns: 1fr; }
+  .wall .cover.w4 { grid-column: span 1; }
+  .bar input { width: 100%; }
+  .bar .spacer { display: none; }
+}
+
+/* ---------- reading page ---------- */
+.reader-head { margin: 0 var(--gutter) var(--gutter); border-radius: 6px; padding: clamp(1.2rem, 4vw, 3rem); }
+.reader-head h1 {
+  margin: 0; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;
+  font-size: clamp(2.4rem, 7.5vw, 6.4rem); max-width: 16ch;
+}
+.reader-head .dek { font-style: italic; font-size: 1.35rem; line-height: 1.35; margin: 1.2rem 0 0; max-width: 36rem; }
+.reader-head .meta { font-style: italic; margin-bottom: 1.6rem; }
+.reader-head .back { display: inline-block; margin-bottom: 2.5rem; font-weight: 500; text-underline-offset: 3px; }
+
+.essay { max-width: 64rem; margin: 0 auto; padding: 1.5rem var(--gutter) 4rem; font-size: 1.3rem; line-height: 1.62; }
+.essay p { margin: 0 0 1.2rem; }
+.essay h2 { font-size: 1.9rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 2.6rem 0 0.8rem; }
+.essay h3 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.6rem; }
+.essay blockquote {
+  margin: 2rem 0; padding: 0.2rem 0 0.2rem 1.2rem; border-left: 5px solid var(--kashmir);
+  font-style: italic; font-size: 1.5rem; line-height: 1.35;
+}
+/* A quote at the very start of a piece becomes a large, centred epigraph.
+   The last paragraph inside it (the attribution) is set smaller. */
+.essay > blockquote:first-child {
+  border: 0; padding: 0; margin: 0.5rem 0 3.2rem;
+  text-align: center; font-style: normal; font-weight: 500;
+  font-size: clamp(1.8rem, 4.6vw, 2.7rem); line-height: 1.2; letter-spacing: -0.01em;
+}
+.essay > blockquote:first-child p { margin: 0 0 1.1rem; }
+.essay > blockquote:first-child p:last-child { margin: 0; font-size: 1.1rem; font-style: italic; font-weight: 400; letter-spacing: 0; }
+.essay > blockquote:first-child p:last-child::before { content: "\2014\00a0"; }
+/* Photos: always fit the text width, with an optional caption (see README) */
+.essay img { display: block; max-width: 100%; height: auto; margin: 2rem auto; border-radius: 6px; }
+.essay figure { margin: 2rem 0; }
+.essay figure img { margin: 0 auto; }
+.essay figcaption { margin-top: 0.6rem; text-align: center; font-style: italic; font-size: 1rem; }
+.essay hr { border: 0; height: 2px; background: var(--ink); margin: 2.6rem 0; }
+.essay a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* Poems (topic "Poetry"): a narrower column so short lines are not stranded on the left of a wide page */
+.essay.poem { max-width: 40rem; }
+
+/* about page uses the same reader layout */
+.essay.plain { padding-top: 3rem; }
+
+/* ---------- footer ---------- */
+footer.site {
+  border-top: 2px solid var(--ink); padding: 1rem var(--gutter) 1.6rem;
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  font-style: italic;
+}
+
+/* ---------- cover photos ---------- */
+
+/* Cards with a photo: solid colour by default. On hover the photo fades in over the colour,
+   so it shows slightly translucent and tinted by the card's colour. */
+.cover.has-photo { position: relative; overflow: hidden; transition: color 0.35s ease; }
+.cover.has-photo > img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.cover.has-photo::before {                   /* dark fade at the bottom keeps the title readable on the photo */
+  content: ""; position: absolute; inset: 0; z-index: 1; opacity: 0; transition: opacity 0.35s ease;
+  background: linear-gradient(to top, rgba(38, 43, 77, 0.78) 0%, rgba(38, 43, 77, 0.12) 70%);
+}
+.cover.has-photo > :not(img) { position: relative; z-index: 2; }
+.cover.has-photo:hover,
+.cover.has-photo:focus-visible { color: var(--paper); }
+.cover.has-photo:hover > img,
+.cover.has-photo:focus-visible > img { opacity: 0.72; }
+.cover.has-photo:hover::before,
+.cover.has-photo:focus-visible::before { opacity: 1; }
+@media (hover: none) {                       /* touch screens have no hover, so show the photo all the time */
+  .cover.has-photo { color: var(--paper); }
+  .cover.has-photo > img { opacity: 0.72; }
+  .cover.has-photo::before { opacity: 1; }
+}
+
+/* Layered cover at the top of a piece: two tilted plates behind the photo, caption on the plate, tilted credit tag */
+.cover-photo {
+  position: relative; isolation: isolate;
+  margin: clamp(2.2rem, 5vw, 3.6rem) var(--gutter);
+  padding: 0;
+}
+.cover-photo::before,
+.cover-photo::after { content: ""; position: absolute; z-index: -1; border-radius: 4px; }
+.cover-photo::before {                       /* pale plate peeking out top and left */
+  inset: -0.9rem -0.3rem 0.4rem -0.7rem;
+  background: var(--paper); transform: rotate(-0.7deg);
+}
+.cover-photo::after {                        /* tinted plate peeking out bottom and right */
+  inset: 1rem -0.8rem -0.5rem -0.4rem;
+  background: linear-gradient(100deg, var(--mist), var(--koi)); transform: rotate(0.8deg);
+}
+.cover-photo img {
+  display: block; width: 100%; aspect-ratio: 2.2 / 1; object-fit: cover; border-radius: 2px;
+}
+.cover-photo figcaption {
+  min-height: 3.4rem; padding: 1rem 8rem 1.1rem; text-align: center;
+  font-style: italic; font-size: 1rem; line-height: 1.35;
+}
+.cover-photo .tag {
+  position: absolute; right: -0.3rem; bottom: 0.7rem; transform: rotate(-3deg);
+  border: 2px solid var(--ink); background: var(--sage); color: var(--ink);
+  padding: 0.1rem 0.7rem; font-style: italic; font-size: 0.95rem; text-decoration: none;
+}
+.cover-photo a.tag:hover { background: var(--ink); color: var(--paper); }
+
+@media (max-width: 700px) {
+  .cover-photo img { aspect-ratio: 4 / 3; }
+  .cover-photo figcaption { padding: 0.9rem 0.5rem 0.3rem; min-height: 0; }
+  .cover-photo .tag { position: static; display: inline-block; margin: 0.4rem 0 0.9rem 0.5rem; transform: rotate(-2deg); }
+}
