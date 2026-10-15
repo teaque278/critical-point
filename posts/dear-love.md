@@ -1,5 +1,5 @@
-dear love, 
-you were blue since I opened my eyes into this world 
+dear love,  
+you were blue since I opened my eyes into this world  
 blue of a clear glass bottle, holding memories soaked in light.
 memories of tiny hands holding bigger ones,
 of laughter past bedtime,
