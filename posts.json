@@ -20,6 +20,14 @@
     "topic": "Movies",
     "summary": "Cillian and Lucy Liu could together not save this mess of a movie"
   },
-  { "slug": "dear-love", "title": "dear love", "date": "2026-10-15", "topic": "Poetry" }
+  { "slug": "dear-love", "title": "dear love", "date": "2026-10-15", "topic": "Poetry" },
+
+  {
+  "slug": "being-in-love-is-being-pathetic",
+  "title": "Being in Love is Being Pathetic",
+  "date": "2026-10-29",
+  "topic": "Stream of thought",
+  "summary": "A lot of things about me are pathetic but being in love tops the list"
+},
   
 ]
